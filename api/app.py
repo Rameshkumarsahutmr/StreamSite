@@ -42,6 +42,14 @@ def tg_stream():
     return "Invalid URL!"
 
 
+@app.route("/stream")
+def stream():
+    video_url = request.args.get("url")
+    if video_url != "":
+        return render_template("stream.html", video_url=video_url)
+    return "Invalid URL!"
+
+
 @app.route("/", methods=["GET", "POST"])
 def home_page():
     if request.method == "POST":
